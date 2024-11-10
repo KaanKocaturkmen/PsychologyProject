@@ -1,0 +1,128 @@
+body {
+    height: 100vh;
+    background-color: #8f8f8f !important;
+    overflow-x: hidden;
+}
+
+.color-white {
+    color: #fff !important;
+}
+
+#cordinateTable {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+#cordinateTable td {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    /* Geçiş efekti */
+}
+
+@media (max-width: 745px),
+(max-height: 725px) {
+    #cordinateTable td {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* y cordinate css */
+#cordinateTable tr td:nth-child(5) {
+    border-right: 2px solid #000;
+}
+
+/* x cordinate css */
+#cordinateTable tr:nth-child(6) td {
+    border-top: 2px solid #000;
+}
+
+#mediaPlayer,
+#dataContainer {
+    display: none;
+    padding: 2rem;
+}
+
+#bottomNav {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    border-radius: 1rem;
+    background-color: #191414;
+    margin-left: 1rem;
+}
+
+#bottomNav2 {
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+    z-index: 1000;
+    border-radius: 1rem;
+    background-color: #191414;
+    margin-left: 1rem;
+}
+
+#expandMediaBtn,
+#expandData {
+    color: #1DB954;
+    background: none;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none !important;
+    font-size: 17px;
+    transition: 0.4s;
+    font-weight: bold;
+}
+
+#expandMediaBtn::after {
+    content: "";
+    border: solid #1DB954;
+    border-width: 0px 2px 2px 0;
+    display: inline-block;
+    padding: 5px;
+    float: inline-end;
+    transition: transform 0.4s ease;
+    rotate: 43deg;
+}
+
+#expandMediaBtn.active::after {
+    transform: rotate(182deg);
+}
+
+.media-track button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 0.5s;
+}
+
+.media-track button:hover {
+    color: #1DB954 !important;
+    text-shadow: 8px 3px 10px rgba(0, 255, 90, 0.8), 0 0 20px rgba(0, 255, 90, 0.6);
+}
+
+.media-track button.selected {
+    color: #40ff84 !important;
+    text-shadow: 8px 3px 10px rgb(252 255 253 / 80%), 0 0 20px rgba(0, 255, 90, 0.6);
+}
+
+.fa-play,
+.fa-stop {
+    transition: 0.4s;
+}
+
+.fa-play:hover {
+    color: #1DB954;
+}
+
+.fa-stop:hover {
+    color: #ffc107;
+}
