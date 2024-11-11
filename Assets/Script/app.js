@@ -18,9 +18,9 @@ $(document).on("click", "#expandMediaBtn", function () {
     });
 });
 
-$(document).on("click", "#expandData", function () {
-    $("#dataContainer").slideToggle('fast', () => {
-        if ($("#dataContainer").css('display') === 'block') {
+$(document).on("click", ".expandData", function () {
+    $(".dataContainer").slideToggle('fast', () => {
+        if ($(".dataContainer").css('display') === 'block') {
             $(this).addClass('active');
         } else {
             $(this).removeClass('active');
