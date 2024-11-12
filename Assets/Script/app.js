@@ -3,9 +3,9 @@ const selectedMusic = document.getElementById('selectedMusic');
 
 $(document).on("click", "td", function () {
     const data = `${Number($(this).data("x"))} ${Number($(this).data("y"))}`
-    $("#cordinateData").html(data);
-    $("#timeData").html(pauseMusic());
-    $("#songData").html($("#mediaPlayer .body .selected").text())
+    $(".cordinate-data").html(data);
+    $(".time-data").html(pauseMusic());
+    $(".song-data").html($("#mediaPlayer .body .selected").text())
 });
 
 $(document).on("click", "#expandMediaBtn", function () {
