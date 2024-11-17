@@ -109,8 +109,7 @@ body {
     margin-left: 1rem;
 }
 
-#expandMediaBtn,
-.expandData {
+#expandMediaBtn, .expandData, .download-data {
     color: #1DB954;
     background: none;
     cursor: pointer;
@@ -149,7 +148,9 @@ body {
 }
 
 .media-track button:hover,
-.expandData:hover {
+.expandData:hover,
+.download-data:hover
+{
     color: #1DB954 !important;
     text-shadow: 8px 3px 10px rgba(0, 255, 90, 0.8), 0 0 20px rgba(0, 255, 90, 0.6);
 }

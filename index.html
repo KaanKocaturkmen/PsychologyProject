@@ -248,14 +248,17 @@
             <div class="dataContainer col-md-12">
 
                 <div class="header">
-                    <h2 class="color-white">Final Data</h2>
+                    <div class="d-flex justify-content-between">
+                        <h2 class="color-white text-nowrap">Final Data</h2>
+                        <button class="download-data text-right"><i class="fa fa-download"></i></button>
+                    </div>
                     <hr style="border-color:#1DB954">
                 </div>
 
                 <div class="body">
                     <div class="align-items-center d-flex justify-content-between">
                         <h3 class="color-white">Sarki</h3>
-                        <span  class="color-white song-data"></span>
+                        <span class="color-white song-data"></span>
                     </div>
                     <div class="align-items-center d-flex justify-content-between">
                         <h3 class="color-white">sure</h3>
@@ -279,11 +282,13 @@
             <div title="Frank Sinatra - Fly me To the moon" class="media-track d-flex">
                 <button class="btn color-white selected" onclick="selectSong('fly me to the moon.mp3', this)">Frank
                     Sinatra - Fly
-                    me To the moon</button>
+                    me To the moon
+                </button>
             </div>
             <div title="Tarkan - Kış Güneşi" class="media-track d-flex">
                 <button class="btn color-white" onclick="selectSong('kis_gunesi.mp3', this)">Tarkan - Kış
-                    Güneşi</button>
+                    Güneşi
+                </button>
             </div>
         </div>
 
@@ -330,7 +335,7 @@
 
     </div>
 
-    <button class="expandData">Data</button>
+    <button class="expandData text-right">Data</button>
 
 </div>
 
