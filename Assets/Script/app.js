@@ -54,3 +54,7 @@ function pauseMusic() {
 audioPlayer.onended = () => {
     console.log("Şarkı bitti.");
 };
+
+$(document).ready(function () {
+    $("#myModal").modal('show');
+});

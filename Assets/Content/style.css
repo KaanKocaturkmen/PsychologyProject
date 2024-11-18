@@ -23,6 +23,7 @@ body {
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
+    border: 1px solid #000;
     /* Geçiş efekti */
 }
 
@@ -171,4 +172,7 @@ body {
 
 .fa-stop:hover {
     color: #ffc107;
+}
+#myModal {
+    top: 35%;
 }
