@@ -13,7 +13,7 @@ body {
 }
 
 #cordinateTable {
-    background-image: url('/Assets/Content/Images/template.png');
+    background-image: url('./Images/template.png');
     border-collapse: collapse;
     background-position: center;
     background-size: cover;
