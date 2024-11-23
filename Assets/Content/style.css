@@ -13,24 +13,25 @@ body {
 }
 
 #cordinateTable {
+    background-image: url('/Assets/Content/Images/template.png');
     border-collapse: collapse;
-    margin: 20px auto;
-}
-
-#cordinateTable td {
-    width: 70px;
-    height: 70px;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid #000;
-    /* Geçiş efekti */
+    background-position: center;
+    background-size: cover;
+    & td {
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+        border: 0.5px dashed #00000021;
+    }
 }
 
 @media (max-height: 720px) {
     #cordinateTable td {
         width: 55px;
         height: 55px;
+    }
+    .cordinate-info {
+        gap: 13rem !important;
     }
 }
 
@@ -73,17 +74,20 @@ body {
 #cordinate-section {
     height: 100dvh;
     align-content: center;
+    & .cordinate-info {
+        gap: 17rem;
+    }
 }
 
-/* y cordinate css */
-#cordinateTable tr td:nth-child(5) {
-    border-right: 2px solid #000;
-}
+/*!* y cordinate css *!*/
+/*#cordinateTable tr td:nth-child(5) {*/
+/*    border-right: 2px solid #000;*/
+/*}*/
 
-/* x cordinate css */
-#cordinateTable tr:nth-child(6) td {
-    border-top: 2px solid #000;
-}
+/*!* x cordinate css *!*/
+/*#cordinateTable tr:nth-child(6) td {*/
+/*    border-top: 2px solid #000;*/
+/*}*/
 
 #mediaPlayer,
 .dataContainer {
@@ -175,4 +179,9 @@ body {
 }
 #myModal {
     top: 35%;
+}
+
+.modal-backdrop.show {
+    opacity: 1 !important;
+    background-color: grey;
 }
