@@ -237,7 +237,7 @@
         <div class="col-md-4">
             <div class="d-flex flex-column cordinate-info">
                 <h5>Heyecan</h5>
-                <h5>Negatif/<br> Hoşnut <br> Hisler</h5>
+                <h5>Pozitif/<br> Hoşnut <br> Hisler</h5>
                 <h5>Rahatlama</h5>
             </div>
         </div>
@@ -284,25 +284,15 @@
             <hr style="border-color:#1DB954">
         </div>
 
-        <div class="body">
-            <div title="Frank Sinatra - Fly me To the moon" class="media-track d-flex">
-                <button song-data="Frank Sinatra - Fly me To the moon" class="btn color-white selected" onclick="selectSong('fly me to the moon.mp3', this)">Frank
-                    Sinatra - Fly
-                    me To the moon
-                </button>
-            </div>
-            <div song-data="Tarkan - Kış Güneşi" title="Tarkan - Kış Güneşi" class="media-track d-flex">
-                <button class="btn color-white" onclick="selectSong('kis_gunesi.mp3', this)">Tarkan - Kış
-                    Güneşi
-                </button>
-            </div>
+        <div id="songs" class="body d-flex flex-column align-items-baseline">
+
         </div>
 
     </div>
 
     <button id="expandMediaBtn"> Şarkı listesi</button>
 
-    <div class="d-flex justify-content-between w-100">
+    <div class="d-flex justify-content-between w-100 pl-3">
         <h4 id="selectedMusic" class="color-white"></h4>
         <div class="button-container">
             <button onclick="playMusic()" class="btn color-white"><i class="fa fa-play"></i></button>
@@ -314,7 +304,6 @@
     </div>
 
 </div>
-
 
 <div id="bottomNav2" class="navbar">
     <div class="col-md-12 dataContainer">

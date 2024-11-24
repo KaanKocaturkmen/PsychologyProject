@@ -22,6 +22,10 @@ body {
         height: 70px;
         cursor: pointer;
         border: 0.5px dashed #00000021;
+        transition: 0.2s;
+        &.selected {
+            box-shadow: inset 0px 0px 4px 0px var(--mainColor);
+        }
     }
 }
 
@@ -115,7 +119,7 @@ body {
 }
 
 #expandMediaBtn, .expandData, .download-data {
-    color: #1DB954;
+    color: var(--mainColor);
     background: none;
     cursor: pointer;
     padding: 18px;
@@ -130,7 +134,7 @@ body {
 
 #expandMediaBtn::after {
     content: "";
-    border: solid #1DB954;
+    border: solid var(--mainColor);
     border-width: 0px 2px 2px 0;
     display: inline-block;
     padding: 5px;
@@ -143,27 +147,27 @@ body {
     transform: rotate(182deg);
 }
 
-.media-track button {
+button.media-track {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     transition: 0.5s;
+    &.selected {
+        color: #40ff84 !important;
+        text-shadow: 8px 3px 10px rgb(252 255 253 / 80%), 0 0 20px rgba(0, 255, 90, 0.6);
+    }
 }
 
-.media-track button:hover,
+button.media-track:hover,
 .expandData:hover,
 .download-data:hover
 {
-    color: #1DB954 !important;
+    color: var(--mainColor) !important;
     text-shadow: 8px 3px 10px rgba(0, 255, 90, 0.8), 0 0 20px rgba(0, 255, 90, 0.6);
 }
 
-.media-track button.selected {
-    color: #40ff84 !important;
-    text-shadow: 8px 3px 10px rgb(252 255 253 / 80%), 0 0 20px rgba(0, 255, 90, 0.6);
-}
 
 .fa-play,
 .fa-stop {
@@ -171,7 +175,7 @@ body {
 }
 
 .fa-play:hover {
-    color: #1DB954;
+    color: var(--mainColor);
 }
 
 .fa-stop:hover {
@@ -179,6 +183,16 @@ body {
 }
 #myModal {
     top: 35%;
+    & #userName {
+        outline: none;
+        border-radius: 7px;
+        padding-left: 0.5rem;
+        border: 1px solid grey;
+    }
+    & .modal-content {
+        box-shadow: 3px 4px 20px 0px #0000004f;
+        border-radius: 12px;
+    }
 }
 
 .modal-backdrop.show {

@@ -1,12 +1,17 @@
 const audioPlayer = document.getElementById('audioPlayer');
 const selectedMusic = document.getElementById('selectedMusic');
-
+let currentCordinate, currentTime = "";
 $(document).on("click", "td", function () {
-    const data = `${Number($(this).data("x"))} ${Number($(this).data("y"))}`
+    const data = `x:${Number($(this).data("x"))} y:${Number($(this).data("y"))}`
+    const time  = `${Math.floor(audioPlayer.currentTime / 60)}:${Math.floor(audioPlayer.currentTime % 60)}`;
+    currentCordinate = data;
+    currentTime = time;
     $(".cordinate-data").html(data);
-    $(".time-data").html(pauseMusic());
+    $(".time-data").html(time);
     $(".song-data").html($("#mediaPlayer .body .selected").text())
-    console.log(data)
+    console.log(data);
+    $("#cordinateTable td").removeClass('selected');
+    $(this).addClass('selected');
 });
 
 $(document).on("click", "#expandMediaBtn", function () {
@@ -29,15 +34,15 @@ $(document).on("click", ".expandData", function () {
     });
 });
 
-$(document).on("click", ".media-track button", function () {
-    $("#selectedMusic").text($(this).attr('value'))
+$(document).on("click", ".media-track", function () {
+    $("#selectedMusic").text($(this).attr('song-data'))
 });
 
 function selectSong(songFile, elem) {
     audioPlayer.src = `./Assets/Media/${songFile}`;
     selectedMusic.textContent = songFile.replace('_', ' ');
     audioPlayer.currentTime = 0;
-    $(".media-track button").removeClass('selected');
+    $(".media-track").removeClass('selected');
     $(elem).addClass('selected');
     playMusic();
 }
@@ -48,15 +53,19 @@ function playMusic() {
 
 function pauseMusic() {
     audioPlayer.pause();
-    const currentTime = audioPlayer.currentTime;
-    return `${Math.floor(currentTime / 60)}:${Math.floor(currentTime % 60)}`
 }
 
-audioPlayer.onended = () => {
-    console.log("Şarkı bitti.");
-};
-
 $(document).ready(function () {
+    fetch('./Assets/Media/files.json')
+        .then(response => response.json())
+        .then(files => {
+            files.forEach((file) => {
+                $("#songs").append(`
+                <button song-data="${file.title}" class="btn color-white media-track" onclick="selectSong('${file.url}', this)">${file.title}</button>
+                `);
+            });
+        });
+
     $("#userName").on("change input", function () {
         const nameValue = $(this).val();
         if (nameValue.length > 0) {
@@ -66,12 +75,14 @@ $(document).ready(function () {
         }
     });
     
-    // $("#myModal").modal('show');
-
+    $("#myModal").modal('show');
     $(".download-data").on("click", function () {
-        let data = [
-            {Name: $("#userName").val(), Song: $("span.song-data").text().trim(), Duration: $("span.time-data").html().trim(), Cordiante: $("span.song-data").text().trim()},
-        ];
+        let data = [{
+            "Name": $("#userName").val(),
+            "Song": $("#selectedMusic").text(),
+            "Coordinate": currentCordinate,
+            "Time": currentTime
+        }];
 
         function convertToCSV(json) {
             const header = Object.keys(json[0]);
@@ -80,15 +91,13 @@ $(document).ready(function () {
         }
 
         const csv = convertToCSV(data);
-
-        // CSV verisini Blob olarak oluştur ve indir
-        const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+        const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
         const link = $("<a>")
             .attr("href", URL.createObjectURL(blob))
-            .attr("download", "data.csv")
+            .attr("download", "data.csv") // Using .xlsx extension
             .appendTo("body");
+
         link[0].click();
         link.remove();
     });
-    
 });
