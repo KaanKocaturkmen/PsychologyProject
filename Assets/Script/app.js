@@ -1,11 +1,10 @@
 const audioPlayer = document.getElementById('audioPlayer');
 const selectedMusic = document.getElementById('selectedMusic');
-let currentCordinate, currentTime = "";
+let currentCordinateTime = [];
 $(document).on("click", "td", function () {
     const data = `x:${Number($(this).data("x"))} y:${Number($(this).data("y"))}`
     const time  = `${Math.floor(audioPlayer.currentTime / 60)}:${Math.floor(audioPlayer.currentTime % 60)}`;
-    currentCordinate = data;
-    currentTime = time;
+    currentCordinateTime.push({ time, data });
     $(".cordinate-data").html(data);
     $(".time-data").html(time);
     $(".song-data").html($("#mediaPlayer .body .selected").text())
@@ -80,8 +79,7 @@ $(document).ready(function () {
         let data = [{
             "Name": $("#userName").val(),
             "Song": $("#selectedMusic").text(),
-            "Coordinate": currentCordinate,
-            "Time": currentTime
+            "CoordinateAndTime": currentCordinateTime,
         }];
 
         function convertToCSV(json) {
